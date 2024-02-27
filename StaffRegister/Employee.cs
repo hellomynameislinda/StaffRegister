@@ -8,6 +8,14 @@ namespace StaffRegister
 {
     internal class Employee
     {
+        public string Name { get; set; }
+        public double Salary { get; set; }
+
+        public Employee(string employeeName, double employeeSalary)
+        {
+            Name = employeeName;
+            Salary = employeeSalary;
+        }
     }
 }
 
@@ -15,14 +23,3 @@ namespace StaffRegister
 
 
 
-//public class Employee
-//{
-//	public string Name { get; set; }
-//	public double MonthlySalary { get; set; }
-
-//	public Employee()
-//	{
-		
-//	}
-
-//}

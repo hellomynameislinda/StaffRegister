@@ -8,7 +8,7 @@ namespace StaffRegister
 {
     internal class EmployeeManagement
     {
-        public string AllEmployees { get; set; } = "Name, Salary\n";
+        private string AllEmployees { get; set; } = "Name, Salary\n";
 
         public void AddEmployee()
         {
@@ -23,11 +23,14 @@ namespace StaffRegister
 
             Console.WriteLine("Enter employee salary:");
             salaryText = Console.ReadLine() ?? "";
-            if (!double.TryParse(salaryText, out salary)) {
-                Console.WriteLine("Error: Salary not a number, will be saved as zero."); //Sort out a proper solution if enough time at the end
+            while (!double.TryParse(salaryText, out salary)) {
+                Console.WriteLine("Error: Salary not a number, will be saved as zero.");
+                Console.WriteLine("Enter employee salary:");
+                salaryText = Console.ReadLine() ?? "";
             }
 
-            AllEmployees += name + "," + salary + "\n"; // Saving employees one user per row, comma separated.
+            AllEmployees += name + ", " + salary + "\n"; // Saving employees one user per row, comma separated.
+
             Console.WriteLine("Employee saved\n");
         }
 
@@ -36,6 +39,5 @@ namespace StaffRegister
             Console.WriteLine("List All Employees");
             Console.WriteLine(AllEmployees + "\n");
         }
-
     }
 }
